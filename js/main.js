@@ -23,85 +23,69 @@ window.onresize = ()=>{
 
 /*CRIANDO TEMPLATES */
 
-const containerpai =document.getElementById('templates')
-function CriarTemplate(n){
-    for(c = 1;c<=n;c++){
-        const container = document.createElement('div')
-        container.setAttribute('class','product')
-        const secao01 = document.createElement('section')
-        secao01.setAttribute('class','seção1')
-        const img = document.createElement('img')
-        img.setAttribute('src','#')
-        secao01.appendChild(img)
-        const secao02 = document.createElement('section')
-        secao02.setAttribute('class','seção2')
-        const h1 = document.createElement('h1')
-        const p1 = document.createElement("p")
-        const p = document.createElement('p')
-        secao02.appendChild(h1)
-        secao02.appendChild(p1)
-        const secao03 = document.createElement('section')
-        secao03.setAttribute('class','seção3')
-        const a = document.createElement('a')
-        a.setAttribute('href','#')
-        a.setAttribute('target','_blank')
-        a.innerText='Acesse aqui'
-        p.appendChild(a)
-        secao03.appendChild(p)
-        container.appendChild(secao01)
-        container.appendChild(secao02)
-        container.appendChild(secao03)
-        containerpai.appendChild(container)
+function criarTemplate(qtd){
+    const conteinerPai = document.getElementById('templates');
+    for(c = 0;c<=qtd;c++){
+        // Div mãe
+            const template = document.createElement('div');
+            template.setAttribute('class','produtos');
+        // seções
+          // seção-01
+            const secao01 = document.createElement('section');
+            secao01.setAttribute('class','secao-1 secoes');
 
+            const img = document.createElement('img');
+            img.setAttribute('src','#')
+            img.setAttribute('class','imgs_p')
+            secao01.appendChild(img)
+
+         // seção-02
+            const secao02 = document.createElement('section');
+            secao02.setAttribute('class','secao-2 secoes');
+            const h2 = document.createElement('h2')
+            secao02.appendChild(h2)
+            const p = document.createElement('p');
+            secao02.appendChild(p)
+        // seção-03
+            const secao03 = document.createElement('section');
+            secao03.setAttribute('class','secao-3 secoes');
+            const btn = document.createElement('button')
+            btn.innerHTML='Editar'
+            btn.setAttribute('class','editores')
+            secao03.appendChild(btn)
+        // Implementando seções
+            template.appendChild(secao01);
+            template.appendChild(secao02);
+            template.appendChild(secao03);
+
+        // implementando template
+            conteinerPai.appendChild(template)
     }
 }
-CriarTemplate(3)
+criarTemplate(4)
 
-// Editando templates
-const templates =[... document.getElementsByClassName("product")]
+// Modificnado conteudo
 
-const secao1 = templates.map((e,i,a)=>{
-    return e.firstElementChild
-})
+const editores = [...document.getElementsByClassName('editores')];
 
-const secao2 = templates.map((e,i,a)=>{
-    return e.firstElementChild.nextElementSibling
-})
-const secao3 = templates.map((e,i,a)=>{
-    return e.firstElementChild.nextElementSibling.nextElementSibling
-})
+editores.map((el,i,a)=>{
+    el.addEventListener('click',()=>{
+        const produtos = el.parentElement.parentElement;
+        const secao = prompt('Seção que deseja editar [ 1 imagem, 2 Titulo/Parágrafo]');
 
-function modificarsecao0(el,img){
-        secao1[el].firstElementChild.src=img
-    
-}
-function modificarsecao01(el,texto){
-   secao2[el].firstElementChild.innerHTML=texto
+        if(secao == 1){
+            const link = prompt("Link da imagem");
+            const img = produtos.firstElementChild.firstChild.src=link;
 
-}
-function modificarsecao02(el,texto){
-    secao2[el].lastElementChild.innerHTML=texto
+        }else if(secao == 2){
+            const h2 = prompt("Titulo");
+            produtos.firstElementChild.nextElementSibling.firstChild.innerHTML=h2;
+            const p = prompt('Parágrafo');
+            produtos.firstElementChild.nextElementSibling.lastChild.innerHTML=p
 
-}
-function modificarsecao03(el,link){
-    console.log(secao3[el].firstElementChild.firstElementChild.setAttribute('href',link))
 
-}
-
-/*Modificar template 1 */
-modificarsecao0(0,'../img/ProjetoIMC.png')
-modificarsecao01(0,' Projeto IMC')
-modificarsecao02(0,'Projeto indice de massa corporal. Tabela de indices, animações, adptação a  diversos tipos de tela.')
-modificarsecao03(0,'https://brunnofardindesouza.github.io/ProjetoImc/')
-/*Modificar template 2 */
-modificarsecao0(1,'../img/ProjetoLogin.png')
-modificarsecao01(1,'Projeto Login')
-modificarsecao02(1,'Projeto tela de login. Adpatavel a diversos tipos de telas, requerimentos de campos e animações.')
-modificarsecao03(1,'https://brunnofardindesouza.github.io/ProjetoLogin/')
-
-/*Modificar template 3 */
-
-modificarsecao0(2,'../img/ProjetoResponsivo.png')
-modificarsecao01(2,'Projeto Responsivo')
-modificarsecao02(2,'Projeto 100% responsivo adpata para mobile,pc,talbets e todos os tipos de device points.')
-modificarsecao03(2,'https://brunnofardindesouza.github.io/Responsivao/')
+        }else{
+            alert('Seção não encontrada');
+        }
+    })
+});

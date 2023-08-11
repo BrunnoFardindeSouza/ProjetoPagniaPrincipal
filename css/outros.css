@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@media screen and (min-width:637px){
+@media screen and (min-width:837px){
     :root{
         --cor1:#2d2d2d;
         --cor2:#1E1E1E;
@@ -58,13 +58,15 @@
         
     }
     nav#menupc a{
+        font-weight: bolder;
         color: white;
         text-decoration: none;
         transition: border .1s;
     }
     nav#menupc a:hover{
-        color: aqua;
-        border-bottom: 3px solid aqua;
+        color: var(--cor5);
+        border-bottom: 2px solid white;
+        transition: .3s;
     }
     nav#menupc div#pesquisar{
         width: 180px;
@@ -86,31 +88,24 @@
         font-size: 1.2em;
         border-radius: 6px;
         position: absolute;
+        text-align: center;
         margin-bottom: 1.1px;
         transform: translate(-50%,-50%);
         background: white url(../img/lupa.png) no-repeat right;
         background-size: contain;
     }
-    section#templates{
-        margin: auto;
-        padding: 10px;
-        max-width:1000px;
-        display:block;
-        text-align: center;
-        border-radius: 10px;   
+    main{
+        display:flex ;
+        align-items: baseline;
+        justify-content: baseline;
+        flex-direction: row;
     }
-    section#templates > div.product{
-        height: 500px;
-        overflow: hidden;
-        display: inline-block;
-        border: 2px solid black;
+    div.produtos{
+        display: block;
+        width: 100%;
+        max-height: 400px;
+        margin-left: 20px;
+        background-color: blue;
     }
-    section#templates > div.product:hover{
-        transform: scale(1.1);
-    }
-    section#templates >div.product > section.seção3 > p:hover{
-        background-color: #e40101;
-    }
-    
-    
+
 }

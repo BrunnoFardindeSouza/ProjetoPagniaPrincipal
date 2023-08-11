@@ -20,7 +20,7 @@ a{
 body{
     background-color: beige;
     font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
+    min-height: 100vh;
 
 }
 header{
@@ -29,7 +29,7 @@ header{
     height: 60px;
     color: white;
     padding: 10px;
-    background:linear-gradient(to top ,var(--cor2),var(--cor3),var(--cor1));
+    background:linear-gradient(to top ,blue,var(--cor5));
     
 }
 .fixar{
@@ -63,7 +63,7 @@ nav#menupc{
     position: absolute;
     flex-direction: column;
     align-items: center;
-    background-color: darkblue;
+    background-color:var(--cor2);
     justify-content: space-between;
 }
 #menuFlutuante section{
@@ -82,8 +82,11 @@ nav#menupc{
     padding-top: 10px;
     text-align: center;
     padding-bottom: 10px;
-    background-color: red;
+    background-color: #454545;
     border: 1px solid white;
+}
+#menuFlutuante li:active{
+    background-color: var(--cor2);
 }
 #menuFlutuante a{
     color: white;
@@ -116,92 +119,57 @@ span.btni_voltar{
     background-color: orangered;
 }
 main{
-    width: 100%;
-    min-height: 100vh;
-    background-color: white;
-}
-section#templates{
     padding: 10px;
-    width: 90%;
-    display: flex;
-    cursor: pointer;
-    margin: auto;
+    display:flex ;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 20px;
-
-    
+    min-height: 100vh;
+    background-color:darkgray;
 }
-section#templates > div.product{
-    margin-top: 20px;
-    max-width:290px;
-    height:400px;
+div.produtos{
     overflow: hidden;
-    margin-left: 20px;
-    border-radius: 10px;
-    display:inline-block;
-    border: 2px solid black;
-    transition: transform 1s;
-    background-color: blue;
-}
-section#templates > div.product > section{
-    width: 100%;
     border: 1px solid white;
-
-}
-section#templates >div.product > section.seção1{
-    height: 48%;
-
-}
-section#templates >div.product > section.seção1 > img{
-    height: 100%;
-    width: 100%;
-
-}
-section#templates >div.product > section.seção2{
-    height: 35%;
-    width: 100%;
-    line-height: 22px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-indent: 28px;
-    text-align: justify;
-    color: white;
-    padding: 3px;
-
-}
-section#templates >div.product > section.seção2 > p{
-    line-height: 27px;
-    max-width: 90%;
-    padding: 2px;
-    margin-top: 3px;
-}
-section#templates >div.product > section.seção3{
-    height: 17%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-section#templates >div.product > section.seção3 > p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    background-color: red;
-}
-section#templates >div.product > section.seção3 > p:active{
-    background-color: #c01919;
-}
-section#templates >div.product > section.seção3 > p > a{
-    text-decoration: none;
-    color: white;
+    margin-top: 20px;
     display: block;
     width: 100%;
-    font-size: 1.2em;
+    height: 500px;
+    background-color: blue;
+}
+.secoes{
+    text-align: center;
+    border-top: 1px solid white;
+    width: 100%;
+}
+.secao-1{
+    height: 45%;
+
+}
+.secao-2{
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    height: 43%;
+}
+.secao-2 h2{
+    margin-top: 10px;
+}
+.secao-2 p{
+    margin-top: 10px;
+    line-height: 27px;
+    text-indent: 10px;
+    text-align: center;
+}
+.secao-3{
+    height: 13%;
+}
+.editores{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+}
+.imgs_p{
+    width: 100%;
+    height: 100%;
 
 }
